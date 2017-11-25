@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>quadratic_equations</title>
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="./assets/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="./assets/css/datepicker3.css" rel="stylesheet" />
+        <link href="./assets/css/styles.css" rel="stylesheet" />
+
+        <!--Custom Font-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+    </h:head>
+
+    <h:body>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">Iniciar sesión</div>
+                    <div class="panel-body">
+                        <h:form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label>Correo electrónico</label>
+                                    <h:inputText class="form-control" id="email"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña</label>
+                                    <h:inputSecret class="form-control" id="password"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:button class="btn btn-primary" value="Iniciar sesión" />
+                                </div>
+                            </fieldset>
+                        </h:form>
+                    </div>
+                </div>
+            </div><!-- /.col-->
+        </div><!-- /.row -->	
+
+        <script src="./assets/js/jquery-1.11.1.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/chart.min.js"></script>
+        <script src="./assets/js/chart-data.js"></script>
+        <script src="./assets/js/easypiechart.js"></script>
+        <script src="assets/js/easypiechart-data.js"></script>
+        <script src="assets/js/bootstrap-datepicker.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <script>
+            window.onload = function () {
+                var chart1 = document.getElementById("line-chart").getContext("2d");
+                window.myLine = new Chart(chart1).Line(lineChartData, {
+                    responsive: true,
+                    scaleLineColor: "rgba(0,0,0,.2)",
+                    scaleGridLineColor: "rgba(0,0,0,.05)",
+                    scaleFontColor: "#c5c7cc"
+                });
+            };
+        </script>
+    </h:body>
+</html>
