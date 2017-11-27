@@ -22,18 +22,19 @@
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">Iniciar sesión</div>
                     <div class="panel-body">
-                        <h:form role="form">
+                        <h:form>
                             <fieldset>
                                 <div class="form-group">
                                     <label>Correo electrónico</label>
-                                    <h:inputText class="form-control" id="email"/>
+                                    <h:inputText class="form-control"  id="email" value="#{jsfLoginBean.email}" />
                                 </div>
                                 <div class="form-group">
                                     <label>Contraseña</label>
-                                    <h:inputSecret class="form-control" id="password"/>
+                                    <h:inputSecret class="form-control" id="password" value="#{jsfLoginBean.password}"/>
                                 </div>
                                 <div class="form-group">
-                                    <h:button class="btn btn-primary" value="Iniciar sesión" />
+                                    <h:commandButton class="btn btn-primary" value="Ingresar" action="#{jsfLoginBean.validate()}" />
+                                    <h:messages></h:messages>
                                 </div>
                             </fieldset>
                         </h:form>
@@ -50,16 +51,5 @@
         <script src="assets/js/easypiechart-data.js"></script>
         <script src="assets/js/bootstrap-datepicker.js"></script>
         <script src="assets/js/custom.js"></script>
-        <script>
-            window.onload = function () {
-                var chart1 = document.getElementById("line-chart").getContext("2d");
-                window.myLine = new Chart(chart1).Line(lineChartData, {
-                    responsive: true,
-                    scaleLineColor: "rgba(0,0,0,.2)",
-                    scaleGridLineColor: "rgba(0,0,0,.05)",
-                    scaleFontColor: "#c5c7cc"
-                });
-            };
-        </script>
     </h:body>
 </html>
