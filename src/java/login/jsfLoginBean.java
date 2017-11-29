@@ -46,12 +46,12 @@ public class jsfLoginBean implements Serializable {
         String tmp_password = this.getPassword();
         
         LoginBean lb = new LoginBean();
-        //HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
 
         if (lb.validar(tmp_email, tmp_password)) {
-            fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Login exitoso", null);
-            fc.addMessage(null, fm);
-            return "login";
+            String name = lb.getName(tmp_email, tmp_password);
+            session.setAttribute("username", name);
+            return "index";
         } else{
             fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Login FALLIDO", null);
             fc.addMessage(null, fm);
