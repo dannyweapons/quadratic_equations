@@ -41,10 +41,10 @@ public class jsfLoginBean implements Serializable {
     }
 
     public String validate() {
-        
+
         String tmp_email = this.getEmail();
         String tmp_password = this.getPassword();
-        
+
         LoginBean lb = new LoginBean();
         HttpSession session = request.getSession();
 
@@ -52,11 +52,17 @@ public class jsfLoginBean implements Serializable {
             String name = lb.getName(tmp_email, tmp_password);
             session.setAttribute("username", name);
             return "index";
-        } else{
-            fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Login FALLIDO", null);
+        } else {
+            fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario y/o contraseña inválidos.", null);
             fc.addMessage(null, fm);
             return "login";
         }
+    }
+
+    public String logout() {
+        HttpSession session = request.getSession();
+        session.removeAttribute("username");
+        return "login.xhtml";
     }
 
 }
